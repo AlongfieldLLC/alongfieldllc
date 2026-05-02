@@ -63,6 +63,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .phase-label-line{flex:1;height:1px;background:rgba(255,255,255,.07)}
 .phase-desc{max-width:1200px;margin:0 auto .75rem;font-size:.78rem;color:rgba(255,255,255,.3);letter-spacing:.05em;font-style:italic}
 .package-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;background-color:#000;padding:0;max-width:1200px;margin:0 auto 4rem}
+
+/* Full-width single card container */
+.package-container-full{display:grid;grid-template-columns:1fr;gap:20px;background-color:#000;padding:0;max-width:1200px;margin:0 auto 4rem}
+.package-container-full .package-card{flex-direction:row;justify-content:space-between;align-items:center;text-align:left;padding:40px 50px;gap:2rem}
+.package-container-full .package-card h2{font-size:2rem}
+.package-container-full .package-card .price{font-size:3.5rem}
+.package-container-full .package-card .tagline{margin-bottom:0}
+.package-container-full .package-card .pkg-badge{top:0;right:0}
+.pkg-card-info{display:flex;flex-direction:column;gap:.5rem;flex:1}
+.pkg-card-action{flex-shrink:0}
+
 .package-card{background:#111111;border:1px solid #333;padding:40px 20px;text-align:center;color:#fff;transition:all 0.3s ease;position:relative;display:flex;flex-direction:column;align-items:center}
 .package-card:hover{border-color:#d40000;transform:translateY(-5px)}
 .package-card h2{font-family:var(--fd);font-size:1.5rem;letter-spacing:2px;color:var(--white);margin-bottom:.5rem}
@@ -107,7 +118,11 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.05);padding:3rem;d
 .footer-links a:hover{color:var(--red-pale)}
 .fab{position:fixed;bottom:2rem;right:2rem;z-index:200;background:var(--red);color:var(--white);font-family:var(--fd);font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;padding:.85rem 1.5rem;text-decoration:none;box-shadow:0 4px 24px rgba(212,0,0,.5);transition:all .2s;display:flex;align-items:center;gap:.5rem}
 .fab:hover{background:var(--red-h);transform:translateY(-2px)}
-@media(max-width:900px){.hero{grid-template-columns:1fr}.hero-right{min-height:260px}.hero-left{padding:7rem 1.5rem 3rem}nav{padding:1rem 1.5rem}.nav-links{display:none}.philosophy{grid-template-columns:1fr;padding:4rem 1.5rem}.section-label{writing-mode:horizontal-tb;transform:none}.package-container{grid-template-columns:1fr}.pkg-section{padding:4rem 1.5rem 5rem}.method-strip{grid-template-columns:1fr;padding:4rem 1.5rem}.testi-grid{grid-template-columns:1fr}.stats-bar{grid-template-columns:1fr 1fr}.testi-header{flex-direction:column;align-items:flex-start;gap:1rem}.testimonials{padding:4rem 1.5rem}footer{flex-direction:column;gap:1.5rem;text-align:center}.cta-section{padding:5rem 1.5rem}}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}.hero-right{min-height:260px}.hero-left{padding:7rem 1.5rem 3rem}nav{padding:1rem 1.5rem}.nav-links{display:none}.philosophy{grid-template-columns:1fr;padding:4rem 1.5rem}.section-label{writing-mode:horizontal-tb;transform:none}.package-container{grid-template-columns:1fr}.pkg-section{padding:4rem 1.5rem 5rem}.method-strip{grid-template-columns:1fr;padding:4rem 1.5rem}.testi-grid{grid-template-columns:1fr}.stats-bar{grid-template-columns:1fr 1fr}.testi-header{flex-direction:column;align-items:flex-start;gap:1rem}.testimonials{padding:4rem 1.5rem}footer{flex-direction:column;gap:1.5rem;text-align:center}.cta-section{padding:5rem 1.5rem}
+  .package-container-full .package-card{flex-direction:column;text-align:center;padding:40px 20px}
+  .pkg-card-info{align-items:center}
+}
 </style>
 </head>
 <body>
@@ -165,17 +180,25 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.05);padding:3rem;d
 <section class="pkg-section" id="packages">
   <h2 class="pkg-section-title reveal">CHOOSE YOUR EDGE</h2>
   <p class="pkg-section-sub reveal">12 programs. 4 phases. One system built to compound. Pick your entry point and initialize.</p>
+
+  <!-- PRE-PHASE: Full-width Assessment card -->
   <div class="phase-label reveal"><span>Pre-Phase &mdash; Pre-Entry</span><div class="phase-label-line"></div></div>
   <p class="phase-desc reveal">Initial commitment to the best Phase of your life.</p>
-  <div class="package-container reveal">
-      <div class="package-card">
+  <div class="package-container-full reveal">
+    <div class="package-card">
       <span class="pkg-badge">First-Time Only</span>
-      <h2>THE ASSESSMENT</h2>
-      <div class="price">$50</div>
-      <p class="tagline">30-min session + full evaluation. Your starting point, defined.</p>
-      <a href="https://square.link/u/GasdHnAk" class="square-btn">Initialize System</a>
+      <div class="pkg-card-info">
+        <h2>THE ASSESSMENT</h2>
+        <div class="price">$50</div>
+        <p class="tagline">30-min session + full evaluation. Your starting point, defined.</p>
+      </div>
+      <div class="pkg-card-action">
+        <a href="https://square.link/u/GasdHnAk" class="square-btn">Initialize System</a>
       </div>
     </div>
+  </div>
+
+  <!-- PHASE 1 -->
   <div class="phase-label reveal"><span>Phase 1 &mdash; The Entry</span><div class="phase-label-line"></div></div>
   <p class="phase-desc reveal">First contact. Zero fluff. Find your baseline.</p>
   <div class="package-container reveal">
@@ -199,6 +222,8 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.05);padding:3rem;d
       <a href="https://square.link/u/fsv4Xay2" class="square-btn">Initialize System</a>
     </div>
   </div>
+
+  <!-- PHASE 2 -->
   <div class="phase-label reveal"><span>Phase 2 &mdash; Momentum</span><div class="phase-label-line"></div></div>
   <p class="phase-desc reveal">Build the streak. Lock in the habit. Stack the results.</p>
   <div class="package-container reveal">
@@ -214,7 +239,7 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.05);padding:3rem;d
       <div class="price">$425</div>
       <span class="price-sub">5 Sessions &mdash; $85/session</span>
       <p class="tagline">Our popular mid-tier bundle. Built for those starting a routine.</p>
-      <a href="Phttps://square.link/u/R6qhXuUN" class="square-btn">Initialize System</a>
+      <a href="https://square.link/u/R6qhXuUN" class="square-btn">Initialize System</a>
     </div>
     <div class="package-card">
       <span class="pkg-badge">Best Value &mdash; Save $250</span>
@@ -225,6 +250,8 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.05);padding:3rem;d
       <a href="https://square.link/u/oZ0fluRG" class="square-btn">Initialize System</a>
     </div>
   </div>
+
+  <!-- PHASE 3 -->
   <div class="phase-label reveal"><span>Phase 3 &mdash; The System</span><div class="phase-label-line"></div></div>
   <p class="phase-desc reveal">Ongoing coaching, nutrition, and lifestyle integration.</p>
   <div class="package-container reveal">
@@ -251,6 +278,8 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.05);padding:3rem;d
       <a href="https://square.link/u/MAid0fXj" class="square-btn">Initialize System</a>
     </div>
   </div>
+
+  <!-- PHASE 4 -->
   <div class="phase-label reveal"><span>Phase 4 &mdash; Executive</span><div class="phase-label-line"></div></div>
   <p class="phase-desc reveal">For those who operate at the highest level and demand the same from their performance.</p>
   <div class="package-container reveal">
@@ -271,7 +300,7 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.05);padding:3rem;d
     </div>
     <div class="package-card" style="border-color:rgba(212,0,0,.4)">
       <span class="pkg-badge">All-In</span>
-      <h2>THE 12-WEEK ALL-I</h2>
+      <h2>THE 12-WEEK ALL-IN</h2>
       <div class="price">$2,400</div>
       <span class="price-sub">Training + Fuel + Coaching</span>
       <p class="tagline">High Intensity Transformation. The total system. 12 weeks of full-stack transformation. Nothing held back.</p>
@@ -283,7 +312,7 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.05);padding:3rem;d
       <div class="price">$4,300</div>
       <span class="price-sub">Training + Fuel + Coaching</span>
       <p class="tagline">The ultimate commitment. 24 weeks of high-level oversight to bridge the gap between a temporary transformation and a permanent lifestyle.</p>
-      <a href="https://square.link/u/vuzKd28q">Initialize System</a>
+      <a href="https://square.link/u/vuzKd28q" class="square-btn">Initialize System</a>
     </div>
   </div>
 </section>
