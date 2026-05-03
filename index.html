@@ -10,9 +10,9 @@
 :root{--black:#000;--white:#fff;--card:#111;--charcoal:#111;--red:#d40000;--red-h:#ff0000;--red-pale:#ff8080;--fd:'Bebas Neue',sans-serif;--fs:'Playfair Display',serif;--fb:'DM Sans',sans-serif}
 html{scroll-behavior:smooth}
 body{background:var(--black);color:var(--white);font-family:var(--fb);font-weight:300;line-height:1.7;overflow-x:hidden}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;background:rgba(0,0,0,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
-.logo{font-family:var(--fd);font-size:1.5rem;letter-spacing:.12em;color:var(--white);text-decoration:none}
-.logo span{color:var(--red)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1rem 3rem;background:rgba(0,0,0,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-logo-wrap{display:inline-block;text-decoration:none;line-height:1}
+.nav-logo-wrap svg{display:block;height:52px;width:auto}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--red-pale)}
@@ -40,13 +40,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .marquee-track{display:inline-block;animation:marquee 18s linear infinite}
 .marquee-item{display:inline-block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.9);padding:0 3rem}
 .marquee-item::after{content:'·';margin-left:3rem;color:rgba(255,255,255,.45)}
-.philosophy{padding:7rem 3rem;max-width:1200px;margin:0 auto}
-.phil-body{display:grid;grid-template-columns:auto 1fr;gap:4rem;align-items:center}
-.logo-container{background:#fff;border:4px solid #1a1a1a;padding:5px;display:inline-block;flex-shrink:0}
-.logo-inner{border:1.5px solid #CC0000;padding:10px 24px;display:flex;flex-direction:column;align-items:center;gap:3px}
-.logo-top,.logo-bottom{font-family:Arial,sans-serif;font-weight:700;font-size:9px;color:#CC0000;letter-spacing:4px;margin:0}
-.logo-main{font-family:'Arial Black',Arial,sans-serif;font-weight:900;font-size:28px;color:#1a1a1a;letter-spacing:2px;line-height:1;margin:0}
-.phil-h2{font-family:var(--fs);font-size:clamp(2rem,4vw,3.2rem);font-weight:400;line-height:1.2;margin-bottom:2rem;color:var(--white);white-space:nowrap}
+.philosophy{padding:7rem 3rem;display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start;max-width:1200px;margin:0 auto}
+.section-label{font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--red);writing-mode:vertical-lr;transform:rotate(180deg);align-self:center}
+.phil-h2{font-family:var(--fs);font-size:clamp(2rem,4vw,3.2rem);font-weight:400;line-height:1.2;margin-bottom:2rem;color:var(--white)}
 .phil-h2 strong{font-weight:700;font-style:italic;color:var(--red-pale)}
 .phil-p{font-size:1rem;color:rgba(255,255,255,.5);max-width:560px;margin-bottom:1.5rem;line-height:1.8}
 .phil-div{width:60px;height:2px;background:var(--red);margin:2.5rem 0}
@@ -85,13 +81,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .package-card .pkg-badge{position:absolute;top:0;right:0;background:var(--red);color:#fff;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;padding:.3rem .75rem;font-weight:600}
 .square-btn{display:inline-block;margin-top:auto;padding:15px 30px;background-color:#d40000;color:#fff;text-decoration:none;font-weight:800;text-transform:uppercase;letter-spacing:2px;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(212,0,0,.3);font-size:.75rem}
 .square-btn:hover{background-color:#ff0000;box-shadow:0 8px 25px rgba(255,0,0,.6);border:1px solid #fff}
-.method-strip{background:var(--red);padding:5rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.method-strip{background:var(--red);padding:5rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;max-width:none}
+.method-strip-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;width:100%}
 .method-h2{font-family:var(--fd);font-size:clamp(2.5rem,5vw,4.5rem);letter-spacing:.04em;line-height:1;color:var(--white)}
-.method-steps{list-style:none;counter-reset:steps}
-.method-step{counter-increment:steps;display:grid;grid-template-columns:3rem 1fr;gap:1rem;padding:1.25rem 0;border-bottom:1px solid rgba(255,255,255,.15)}
+.method-steps{list-style:none;counter-reset:steps;width:100%}
+.method-step{counter-increment:steps;display:flex;gap:1.5rem;align-items:flex-start;padding:1.25rem 0;border-bottom:1px solid rgba(255,255,255,.15)}
 .method-step:last-child{border-bottom:none}
-.method-step::before{content:counter(steps,decimal-leading-zero);font-family:var(--fd);font-size:1.2rem;color:rgba(255,255,255,.5)}
-.step-text{font-size:.9rem;color:rgba(255,255,255,.75);line-height:1.6}
+.method-step-num{font-family:var(--fd);font-size:1.2rem;color:rgba(255,255,255,.5);flex-shrink:0;min-width:2.5rem;padding-top:.1rem}
+.step-text{font-size:.9rem;color:rgba(255,255,255,.75);line-height:1.6;flex:1;min-width:0}
 .step-text strong{display:block;font-weight:500;color:var(--white);margin-bottom:.2rem}
 .testimonials{padding:7rem 3rem;background:#0a0a0a}
 .testi-header{max-width:1200px;margin:0 auto 4rem;display:flex;justify-content:space-between;align-items:center}
@@ -110,9 +107,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .cta-h2{font-family:var(--fd);font-size:clamp(3rem,7vw,6rem);letter-spacing:.04em;color:var(--white);line-height:1;margin-bottom:1.5rem;position:relative;z-index:1}
 .cta-sub{font-family:var(--fs);font-style:italic;font-size:1.05rem;color:rgba(255,255,255,.4);margin-bottom:3rem;position:relative;z-index:1}
 .cta-actions{display:flex;gap:1rem;justify-content:center;position:relative;z-index:1}
-footer{background:#000;border-top:1px solid rgba(255,255,255,.05);padding:3rem;display:flex;justify-content:space-between;align-items:center}
-.footer-logo{font-family:var(--fd);font-size:1.2rem;letter-spacing:.1em;color:var(--white)}
-.footer-logo span{color:var(--red)}
+footer{background:#000;border-top:1px solid rgba(255,255,255,.05);padding:2.5rem 3rem;display:flex;justify-content:space-between;align-items:center}
+.footer-logo-wrap{display:inline-block;line-height:1}
+.footer-logo-wrap svg{display:block;height:44px;width:auto}
 .footer-copy{font-size:.72rem;color:rgba(255,255,255,.22)}
 .footer-links{display:flex;gap:2rem;list-style:none}
 .footer-links a{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.28);text-decoration:none;transition:color .2s}
@@ -120,17 +117,37 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.05);padding:3rem;d
 .fab{position:fixed;bottom:2rem;right:2rem;z-index:200;background:var(--red);color:var(--white);font-family:var(--fd);font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;padding:.85rem 1.5rem;text-decoration:none;box-shadow:0 4px 24px rgba(212,0,0,.5);transition:all .2s;display:flex;align-items:center;gap:.5rem}
 .fab:hover{background:var(--red-h);transform:translateY(-2px)}
 @media(max-width:900px){
-  .hero{grid-template-columns:1fr}.hero-right{min-height:260px}.hero-left{padding:7rem 1.5rem 3rem}nav{padding:1rem 1.5rem}.nav-links{display:none}.philosophy{padding:4rem 1.5rem}.phil-body{grid-template-columns:1fr}.phil-h2{white-space:normal}.package-container{grid-template-columns:1fr}.pkg-section{padding:4rem 1.5rem 5rem}.method-strip{grid-template-columns:1fr;padding:4rem 1.5rem}.testi-grid{grid-template-columns:1fr}.stats-bar{grid-template-columns:1fr 1fr}.testi-header{flex-direction:column;align-items:flex-start;gap:1rem}.testimonials{padding:4rem 1.5rem}footer{flex-direction:column;gap:1.5rem;text-align:center}.cta-section{padding:5rem 1.5rem}
+  .hero{grid-template-columns:1fr}.hero-right{min-height:260px}.hero-left{padding:7rem 1.5rem 3rem}
+  nav{padding:.75rem 1.5rem}.nav-links{display:none}
+  .philosophy{grid-template-columns:1fr;padding:4rem 1.5rem}.section-label{writing-mode:horizontal-tb;transform:none}
+  .package-container{grid-template-columns:1fr}.pkg-section{padding:4rem 1.5rem 5rem}
+  .method-strip{padding:4rem 1.5rem}.method-strip-inner{grid-template-columns:1fr;gap:2.5rem}
+  .testi-grid{grid-template-columns:1fr}.stats-bar{grid-template-columns:1fr 1fr}
+  .testi-header{flex-direction:column;align-items:flex-start;gap:1rem}.testimonials{padding:4rem 1.5rem}
+  footer{flex-direction:column;gap:1.5rem;text-align:center}.cta-section{padding:5rem 1.5rem}
   .package-container-full .package-card{flex-direction:column;text-align:center;padding:40px 20px}
   .pkg-card-info{align-items:center}
-  .phil-h2{white-space:normal}
+  .nav-logo-wrap svg{height:42px}
+  .footer-logo-wrap svg{height:36px}
 }
 </style>
 </head>
 <body>
+
 <a href="#packages" class="fab" id="fab">&#8593; &nbsp;View Packages</a>
+
 <nav>
-  <a href="#" class="logo">ALONG<span>FIELD</span></a>
+  <a href="#" class="nav-logo-wrap" aria-label="Alongfield Fitness Performance — Home">
+    <svg viewBox="0 0 240 82" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="240" height="82" fill="#fff"/>
+      <rect x="4" y="4" width="232" height="74" fill="#1a1a1a"/>
+      <rect x="9" y="9" width="222" height="64" fill="#fff"/>
+      <rect x="14" y="14" width="212" height="54" fill="none" stroke="#CC0000" stroke-width="1.5"/>
+      <text x="120" y="29" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="9.5" fill="#CC0000" letter-spacing="4">ALONGFIELD</text>
+      <text x="120" y="52" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="22" fill="#1a1a1a" letter-spacing="1">FITNESS</text>
+      <text x="120" y="66" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="9.5" fill="#CC0000" letter-spacing="4">PERFORMANCE</text>
+    </svg>
+  </a>
   <ul class="nav-links">
     <li><a href="#packages">Packages</a></li>
     <li><a href="#method">Method</a></li>
@@ -139,6 +156,7 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.05);padding:3rem;d
   </ul>
   <a href="#packages" class="nav-cta">Buy Now</a>
 </nav>
+
 <section class="hero">
   <div class="hero-left">
     <p class="hero-eyebrow">High-Performance Training &amp; Life Optimization</p>
@@ -158,41 +176,34 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.05);padding:3rem;d
     </div>
   </div>
 </section>
+
 <div class="marquee-bar" aria-hidden="true">
   <div class="marquee-track">
     <span class="marquee-item">HIIT Training</span><span class="marquee-item">Executive Performance</span><span class="marquee-item">Lifestyle Consulting</span><span class="marquee-item">Recovery Protocols</span><span class="marquee-item">Mental Clarity</span><span class="marquee-item">Nutrition Strategy</span><span class="marquee-item">Sleep Optimization</span><span class="marquee-item">Sustainable Results</span><span class="marquee-item">HIIT Training</span><span class="marquee-item">Executive Performance</span><span class="marquee-item">Lifestyle Consulting</span><span class="marquee-item">Recovery Protocols</span><span class="marquee-item">Mental Clarity</span><span class="marquee-item">Nutrition Strategy</span><span class="marquee-item">Sleep Optimization</span><span class="marquee-item">Sustainable Results</span>
   </div>
 </div>
+
 <section class="philosophy" id="about">
+  <span class="section-label">Philosophy</span>
   <div class="reveal">
     <h2 class="phil-h2">Your body and your <strong>career are the same system.</strong></h2>
     <div class="phil-div"></div>
-  </div>
-  <div class="phil-body reveal">
-    <div class="logo-container">
-      <div class="logo-inner">
-        <p class="logo-top">ALONGFIELD</p>
-        <p class="logo-main">FITNESS</p>
-        <p class="logo-bottom">PERFORMANCE</p>
-      </div>
-    </div>
-    <div>
-      <p class="phil-p">Most fitness programs treat the body as separate from professional life. We don't. Alongfield was built on a single conviction: the habits that make you physically elite are the same ones that build exceptional careers.</p>
-      <p class="phil-p">We don't sell workouts. We engineer performance systems. Every HIIT protocol is designed around your schedule, stress load, sleep data, and professional goals.</p>
-      <a href="#packages" class="btn-ghost" style="border-color:rgba(255,255,255,.2)">See Our Packages &rarr;</a>
-    </div>
+    <p class="phil-p">Most fitness programs treat the body as separate from professional life. We don't. Alongfield was built on a single conviction: the habits that make you physically elite are the same ones that build exceptional careers.</p>
+    <p class="phil-p">We don't sell workouts. We engineer performance systems. Every HIIT protocol is designed around your schedule, stress load, sleep data, and professional goals.</p>
+    <a href="#packages" class="btn-ghost" style="border-color:rgba(255,255,255,.2)">See Our Packages &rarr;</a>
   </div>
 </section>
+
 <div class="stats-bar">
   <div class="stat-item reveal"><span class="stat-n">100+</span><span class="stat-l">Clients Transformed</span></div>
   <div class="stat-item reveal" style="transition-delay:.1s"><span class="stat-n">6yrs</span><span class="stat-l">Industry Experience</span></div>
   <div class="stat-item reveal" style="transition-delay:.2s"><span class="stat-n">3x</span><span class="stat-l">Avg Performance Gain</span></div>
   <div class="stat-item reveal" style="transition-delay:.3s"><span class="stat-n">98%</span><span class="stat-l">Client Retention Rate</span></div>
 </div>
+
 <section class="pkg-section" id="packages">
   <h2 class="pkg-section-title reveal">CHOOSE YOUR EDGE</h2>
   <p class="pkg-section-sub reveal">14 programs. 4 phases. One system built to compound. Pick your entry point and initialize.</p>
-
   <div class="phase-label reveal"><span>Pre-Phase &mdash; Pre-Entry</span><div class="phase-label-line"></div></div>
   <p class="phase-desc reveal">Initial commitment to the best Phase of your life.</p>
   <div class="package-container-full reveal">
@@ -208,7 +219,6 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.05);padding:3rem;d
       </div>
     </div>
   </div>
-
   <div class="phase-label reveal"><span>Phase 1 &mdash; The Entry</span><div class="phase-label-line"></div></div>
   <p class="phase-desc reveal">First contact. Zero fluff. Find your baseline.</p>
   <div class="package-container reveal">
@@ -232,7 +242,6 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.05);padding:3rem;d
       <a href="https://square.link/u/fsv4Xay2" class="square-btn">Initialize System</a>
     </div>
   </div>
-
   <div class="phase-label reveal"><span>Phase 2 &mdash; Momentum</span><div class="phase-label-line"></div></div>
   <p class="phase-desc reveal">Build the streak. Lock in the habit. Stack the results.</p>
   <div class="package-container reveal">
@@ -259,7 +268,6 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.05);padding:3rem;d
       <a href="https://square.link/u/oZ0fluRG" class="square-btn">Initialize System</a>
     </div>
   </div>
-
   <div class="phase-label reveal"><span>Phase 3 &mdash; The System</span><div class="phase-label-line"></div></div>
   <p class="phase-desc reveal">Ongoing coaching, nutrition, and lifestyle integration.</p>
   <div class="package-container reveal">
@@ -286,7 +294,6 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.05);padding:3rem;d
       <a href="https://square.link/u/MAid0fXj" class="square-btn">Initialize System</a>
     </div>
   </div>
-
   <div class="phase-label reveal"><span>Phase 4 &mdash; Executive</span><div class="phase-label-line"></div></div>
   <p class="phase-desc reveal">For those who operate at the highest level and demand the same from their performance.</p>
   <div class="package-container reveal">
@@ -323,15 +330,19 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.05);padding:3rem;d
     </div>
   </div>
 </section>
+
 <div class="method-strip" id="method">
-  <div class="reveal"><h2 class="method-h2">THE ALONG<br>FIELD<br>METHOD</h2></div>
-  <ol class="method-steps reveal">
-    <li class="method-step"><div></div><div class="step-text"><strong>Assess</strong>Biometric intake, lifestyle audit, and professional performance mapping. We know your baseline before we build your protocol.</div></li>
-    <li class="method-step"><div></div><div class="step-text"><strong>Design</strong>Custom HIIT programming and lifestyle intervention strategy. Every variable tuned to your schedule and data.</div></li>
-    <li class="method-step"><div></div><div class="step-text"><strong>Execute</strong>Coached sessions with real-time feedback. Weekly check-ins. Protocol adjustments based on how your body responds.</div></li>
-    <li class="method-step"><div></div><div class="step-text"><strong>Optimize</strong>Monthly performance reviews. Data-driven recalibration. The program adapts as you advance.</div></li>
-  </ol>
+  <div class="method-strip-inner">
+    <div class="reveal"><h2 class="method-h2">THE ALONG<br>FIELD<br>METHOD</h2></div>
+    <ol class="method-steps reveal">
+      <li class="method-step"><span class="method-step-num">01</span><div class="step-text"><strong>Assess</strong>Biometric intake, lifestyle audit, and professional performance mapping. We know your baseline before we build your protocol.</div></li>
+      <li class="method-step"><span class="method-step-num">02</span><div class="step-text"><strong>Design</strong>Custom HIIT programming and lifestyle intervention strategy. Every variable tuned to your schedule and data.</div></li>
+      <li class="method-step"><span class="method-step-num">03</span><div class="step-text"><strong>Execute</strong>Coached sessions with real-time feedback. Weekly check-ins. Protocol adjustments based on how your body responds.</div></li>
+      <li class="method-step"><span class="method-step-num">04</span><div class="step-text"><strong>Optimize</strong>Monthly performance reviews. Data-driven recalibration. The program adapts as you advance.</div></li>
+    </ol>
+  </div>
 </div>
+
 <section class="testimonials" id="results">
   <div class="testi-header reveal">
     <h2 class="testi-title">CLIENT<br>RESULTS</h2>
@@ -340,18 +351,19 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.05);padding:3rem;d
   <div class="testi-grid">
     <div class="testi-card reveal">
       <p class="testi-text">Alongfield is the first program that understood my fitness had to serve my work, not compete with it. My energy at 6pm meetings is unrecognizable.</p>
-      <div class="testi-author"><div class="testi-avatar">MR</div><div><p class="testi-name">Marcus R.</p><p class="testi-role">VP of Operations, Finance</p></div></div>
+      <div class="testi-author"><div class="testi-avatar">MR</div><div><p class="testi-name">Kenny A.</p><p class="testi-role">Firefighter</p></div></div>
     </div>
     <div class="testi-card reveal" style="transition-delay:.15s">
       <p class="testi-text">Three months in, I dropped 18 lbs and closed the biggest deal of my career. Sleep, nutrition, training — it's all one system now.</p>
-      <div class="testi-author"><div class="testi-avatar">JK</div><div><p class="testi-name">Jordan K.</p><p class="testi-role">Founder, SaaS Startup</p></div></div>
+      <div class="testi-author"><div class="testi-avatar">JK</div><div><p class="testi-name">Ryan S.</p><p class="testi-role">Founder, SaaS Startup</p></div></div>
     </div>
     <div class="testi-card reveal" style="transition-delay:.3s">
       <p class="testi-text">The HIIT sessions are intense and efficient — but the consulting around recovery and workflow changed how I run my entire team.</p>
-      <div class="testi-author"><div class="testi-avatar">DT</div><div><p class="testi-name">Dana T.</p><p class="testi-role">Director of Engineering, Tech</p></div></div>
+      <div class="testi-author"><div class="testi-avatar">DT</div><div><p class="testi-name">Mike S.</p><p class="testi-role">Director of Engineering, Tech</p></div></div>
     </div>
   </div>
 </section>
+
 <section class="cta-section" id="contact">
   <p class="cta-eyebrow">Ready to begin?</p>
   <h2 class="cta-h2">BUILD YOUR<br>EDGE.</h2>
@@ -361,8 +373,19 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.05);padding:3rem;d
     <a href="mailto:alongfieldllc@gmail.com" class="btn-ghost">alongfieldllc@gmail.com</a>
   </div>
 </section>
+
 <footer>
-  <span class="footer-logo">ALONG<span>FIELD</span> LLC</span>
+  <a href="#" class="footer-logo-wrap" aria-label="Alongfield Fitness Performance">
+    <svg viewBox="0 0 240 82" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="240" height="82" fill="#fff"/>
+      <rect x="4" y="4" width="232" height="74" fill="#1a1a1a"/>
+      <rect x="9" y="9" width="222" height="64" fill="#fff"/>
+      <rect x="14" y="14" width="212" height="54" fill="none" stroke="#CC0000" stroke-width="1.5"/>
+      <text x="120" y="29" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="9.5" fill="#CC0000" letter-spacing="4">ALONGFIELD</text>
+      <text x="120" y="52" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="22" fill="#1a1a1a" letter-spacing="1">FITNESS</text>
+      <text x="120" y="66" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="9.5" fill="#CC0000" letter-spacing="4">PERFORMANCE</text>
+    </svg>
+  </a>
   <p class="footer-copy">&copy; 2026 Alongfield LLC &middot; alongfieldfitness.com</p>
   <ul class="footer-links">
     <li><a href="#packages">Packages</a></li>
@@ -370,6 +393,7 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.05);padding:3rem;d
     <li><a href="#contact">Contact</a></li>
   </ul>
 </footer>
+
 <script>
 const reveals = document.querySelectorAll('.reveal');
 const obs = new IntersectionObserver(entries => {
